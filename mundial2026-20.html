@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏆 מונדיאל הימורים 2026</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #0a0e1a; color: #f1f5f9; font-family: 'Segoe UI', Arial, sans-serif; min-height: 100vh; direction: rtl; }
+.container { max-width: 480px; margin: 0 auto; padding: 16px; }
+.logo { text-align: center; padding-top: 40px; }
+.logo div { font-size: 60px; }
+h1 { font-size: 26px; font-weight: 800; color: #f59e0b; margin: 8px 0 4px; }
+.sub { font-size: 13px; color: #64748b; margin-bottom: 28px; }
+.card { background: #111827; border: 1px solid #1e2d40; border-radius: 16px; padding: 20px; margin-bottom: 14px; }
+label { display: block; font-size: 13px; color: #64748b; margin-bottom: 6px; }
+.inp { width: 100%; padding: 12px 14px; border-radius: 10px; border: 1.5px solid #1e2d40; background: #0d1424; color: #f1f5f9; font-size: 15px; outline: none; font-family: inherit; margin-bottom: 10px; }
+.inp:focus { border-color: #f59e0b; }
+.btn { width: 100%; padding: 13px; border-radius: 10px; border: none; font-weight: 700; font-size: 16px; cursor: pointer; font-family: inherit; margin-bottom: 8px; }
+.btn-gold { background: #f59e0b; color: #000; }
+.btn-green { background: #1e3a2f; color: #10b981; }
+.btn-gray { background: #1a1208; color: #f59e0b; font-size: 13px; }
+.tabs { display: flex; background: #111827; border-radius: 10px; padding: 4px; margin-bottom: 14px; gap: 4px; }
+.tab { flex: 1; padding: 10px 4px; border: none; background: transparent; color: #64748b; font-weight: 700; font-size: 13px; cursor: pointer; border-radius: 8px; font-family: inherit; }
+.tab.on { background: #f59e0b; color: #000; }
+.mc { background: #1e3a5f; border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; border: 1px solid #1e2d40; }
+.mh { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.badge { border-radius: 6px; padding: 2px 8px; font-size: 12px; font-weight: 700; }
+.bg { background: #f59e0b22; color: #f59e0b; }
+.br { background: #ef444422; color: #ef4444; }
+.bgg { background: #10b98122; color: #10b981; }
+.mr { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.tn { flex: 1; font-weight: 700; font-size: 13px; }
+.ta { text-align: left; }
+.si { display: flex; align-items: center; gap: 6px; }
+.sb { width: 42px; text-align: center; padding: 7px 4px; border-radius: 8px; border: 1.5px solid #1e2d40; background: #0d1424; color: #f1f5f9; font-size: 16px; font-weight: 700; font-family: inherit; }
+.sd { width: 42px; text-align: center; padding: 7px 4px; border-radius: 8px; background: #1e3a2f; color: #f1f5f9; font-size: 16px; font-weight: 700; }
+.sep { color: #64748b; }
+.hdr { display: flex; justify-content: space-between; align-items: center; padding-top: 16px; margin-bottom: 14px; }
+.rt { font-size: 17px; font-weight: 800; color: #f59e0b; }
+.rs { font-size: 12px; color: #64748b; }
+.rb { background: #1e2d40; border: none; color: #f1f5f9; border-radius: 8px; padding: 6px 12px; cursor: pointer; font-family: inherit; font-size: 13px; }
+.lbr { display: flex; align-items: center; gap: 12px; }
+.lbn { font-weight: 700; font-size: 15px; }
+.lbs { font-size: 12px; color: #64748b; }
+.lbp { font-size: 22px; font-weight: 800; color: #f59e0b; }
+.mec { background: #1e3a5f !important; }
+.notif { position: fixed; top: 16px; left: 50%; transform: translateX(-50%); padding: 10px 22px; border-radius: 10px; font-weight: 700; z-index: 999; font-size: 14px; white-space: nowrap; box-shadow: 0 4px 20px #0005; display: none; }
+.nok { background: #10b981; color: #fff; }
+.nerr { background: #ef4444; color: #fff; }
+.sc { display: none; }
+.sc.on { display: block; }
+.ib { background: #1a1f2e; border-radius: 8px; padding: 10px 14px; font-size: 13px; color: #64748b; margin-bottom: 12px; }
+.unk { text-align: center; color: #64748b; font-size: 13px; padding: 6px 0; }
+.res { margin-top: 6px; text-align: center; font-size: 12px; color: #64748b; }
+.adn { background: #1a1208; border: 1px solid #f59e0b44; border-radius: 12px; padding: 12px; margin-bottom: 12px; font-size: 13px; color: #f59e0b; font-weight: 700; }
+.ati { flex: 1; padding: 7px 10px; border-radius: 8px; border: 1px solid #1e2d40; background: #0d1424; color: #f1f5f9; font-size: 13px; font-family: inherit; }
+.sbtn { background: #1e3a5f; border: none; color: #f59e0b; border-radius: 8px; padding: 7px 12px; font-weight: 700; cursor: pointer; font-size: 13px; font-family: inherit; }
+.cbtn { background: #10b981; border: none; color: #fff; border-radius: 8px; padding: 7px 12px; font-weight: 700; cursor: pointer; font-family: inherit; }
+.pn { margin-top: 10px; font-size: 12px; color: #64748b; text-align: center; }
+.scbanner { border-color: #10b98155 !important; background: #0d1f14 !important; text-align: center; }
+</style>
+</head>
+<body>
+<div id="notif" class="notif"></div>
+
+<!-- HOME -->
+<div id="s-home" class="sc on">
+<div class="container">
+  <div class="logo"><div>🏆</div></div>
+  <h1 style="text-align:center">מונדיאל הימורים 2026</h1>
+  <p class="sub" style="text-align:center">ארה״ב · קנדה · מקסיקו</p>
+  <div class="card">
+    <label>השם שלך</label>
+    <input class="inp" id="iname" placeholder="למשל: דפנה" maxlength="20">
+    <button class="btn btn-green" style="font-size:17px;padding:15px" onclick="goJoin()">🔗 הצטרף לחדר</button>
+    <button class="btn btn-gray" onclick="goCreate()">⚙️ צור חדר חדש (אדמין בלבד)</button>
+  </div>
+  <p style="text-align:center;font-size:12px;color:#64748b">✅ מדויק = 3 נק' &nbsp;|&nbsp; ↕️ כיוון נכון = 1 נק'</p>
+</div>
+</div>
+
+<!-- CREATE -->
+<div id="s-create" class="sc">
+<div class="container">
+  <button onclick="go('home')" style="background:none;border:none;color:#64748b;font-size:22px;cursor:pointer;padding:16px 0">← חזרה</button>
+  <h1 style="text-align:center;margin-bottom:20px">צור חדר</h1>
+  <div class="card">
+    <label>שם החדר / הקבוצה</label>
+    <input class="inp" id="irname" placeholder='למשל: "ההימורים של וילנא"' maxlength="30">
+    <div style="font-size:13px;color:#64748b;margin-bottom:12px">אדמין: <b id="cadmin" style="color:#f59e0b"></b></div>
+    <button class="btn btn-gold" onclick="createRoom()">🚀 צור חדר</button>
+  </div>
+</div>
+</div>
+
+<!-- JOIN -->
+<div id="s-join" class="sc">
+<div class="container">
+  <button onclick="go('home')" style="background:none;border:none;color:#64748b;font-size:22px;cursor:pointer;padding:16px 0">← חזרה</button>
+  <h1 style="text-align:center;margin-bottom:20px">הצטרף לחדר</h1>
+  <div class="card">
+    <div class="ib">שתף את קובץ ה-HTML הזה בוואטסאפ — כולם פותחים אותו ולוחצים הצטרף.</div>
+    <div style="font-size:14px;color:#64748b;margin-bottom:12px">מצטרף כ: <b id="jname" style="color:#f59e0b"></b></div>
+    <button class="btn btn-green" onclick="joinRoom()">🔗 הצטרף</button>
+  </div>
+</div>
+</div>
+
+<!-- GAME -->
+<div id="s-game" class="sc">
+<div class="container">
+  <div class="hdr">
+    <div>
+      <div class="rt">🏆 <span id="hroom"></span></div>
+      <div class="rs">שלום, <span id="hplayer"></span> <span id="hadmin" style="display:none" class="badge bg">אדמין</span></div>
+    </div>
+    <button class="rb" onclick="refresh()">↻ רענן</button>
+  </div>
+  <div class="tabs">
+    <button class="tab on" onclick="stab('bets',this)">🎯 הימורים</button>
+    <button class="tab" onclick="stab('lb',this)">🏅 טבלה</button>
+    <button class="tab" id="atab" style="display:none" onclick="stab('admin',this)">⚙️ אדמין</button>
+  </div>
+
+  <!-- BETS -->
+  <div id="t-bets">
+    <div id="okbanner" style="display:none"></div>
+    <div class="tabs" style="margin-bottom:12px">
+      <button class="tab on" onclick="sstage('g',this,'bets')">⚽ שלב הבתים</button>
+      <button class="tab" onclick="sstage('k',this,'bets')">⚡ נוקאאוט</button>
+    </div>
+    <div id="blist"></div>
+    <button id="savebtn" class="btn btn-gold" onclick="saveBets()">💾 שמור הימורים</button>
+    <p class="pn">✅ מדויק = 3 נק' &nbsp;|&nbsp; ↕️ כיוון נכון = 1 נק'</p>
+  </div>
+
+  <!-- LB -->
+  <div id="t-lb" style="display:none">
+    <div class="card" style="text-align:center;font-size:13px;color:#64748b">
+      שחקנים: <b id="lbcount" style="color:#f59e0b"></b>
+    </div>
+    <div id="lblist"></div>
+  </div>
+
+  <!-- SPECIAL -->
+  <div id="t-special" style="display:none">
+    <div class="card" style="background:#111827">
+      <div style="font-size:13px;color:#64748b;margin-bottom:16px">הימרו על שלושת הפרסים הגדולים — כל תשובה נכונה = <b style="color:#f59e0b">5 נקודות</b></div>
+      <label>🥇 הנבחרת הזוכה</label>
+      <input class="inp" id="sp-winner" placeholder="למשל: ברזיל">
+      <label>⚽ מלך השערים</label>
+      <input class="inp" id="sp-scorer" placeholder="למשל: הארלנד">
+      <label>🏅 שחקן מצטיין (Golden Ball)</label>
+      <input class="inp" id="sp-player" placeholder="למשל: מסי">
+      <button class="btn btn-gold" onclick="saveSpecial()">💾 שמור</button>
+    </div>
+    <div id="sp-saved" style="display:none" class="card" style="background:#0d1f14;border-color:#10b98155;text-align:center">
+      <div style="color:#10b981;font-weight:700">✅ ההימורים המיוחדים נשמרו!</div>
+      <div id="sp-display" style="margin-top:10px;font-size:14px;color:#f1f5f9"></div>
+    </div>
+  </div>
+
+  <!-- ADMIN -->
+  <div id="t-admin" style="display:none">
+    <div class="adn">⚙️ עדכן תוצאות + הזן קבוצות לנוקאאוט</div>
+    <div class="card" style="background:#1a1208;border-color:#f59e0b44;margin-bottom:12px">
+      <div style="font-size:13px;color:#f59e0b;font-weight:700;margin-bottom:10px">⭐ תשובות נכונות להימורים מיוחדים</div>
+      <label>🥇 הנבחרת הזוכה</label>
+      <input class="inp" id="ans-winner" placeholder="הנבחרת שזכתה">
+      <label>⚽ מלך השערים</label>
+      <input class="inp" id="ans-scorer" placeholder="שם השחקן">
+      <label>🏅 שחקן מצטיין</label>
+      <input class="inp" id="ans-player" placeholder="שם השחקן">
+      <button class="btn btn-gold" style="margin-top:4px" onclick="saveSpecialAnswers()">✓ שמור תשובות</button>
+    </div>
+    <div class="tabs" style="margin-bottom:12px">
+      <button class="tab on" onclick="sstage('g',this,'admin')">⚽ שלב הבתים</button>
+      <button class="tab" onclick="sstage('k',this,'admin')">⚡ נוקאאוט</button>
+    </div>
+    <div id="alist"></div>
+  </div>
+</div>
+</div>
+
+<script>
+// ========== DATA ==========
+// משחקי שלב הבתים שנותרו
+const GM = [
+  {id:"g1",h:"🇹🇳 תוניסיה",a:"🇳🇱 הולנד",g:"בית F",d:"26/6 02:00"},
+  {id:"g2",h:"🇯🇵 יפן",a:"🇸🇪 שבדיה",g:"בית F",d:"26/6 02:00"},
+  {id:"g3",h:"🇹🇷 טורקיה",a:"🇺🇸 ארה'ב",g:"בית D",d:"26/6 05:00"},
+  {id:"g4",h:"🇵🇾 פרגוואי",a:"🇦🇺 אוסטרליה",g:"בית D",d:"26/6 05:00"},
+  {id:"g5",h:"🇳🇴 נורבגיה",a:"🇫🇷 צרפת",g:"בית I",d:"26/6 22:00"},
+  {id:"g6",h:"🇸🇳 סנגל",a:"🇮🇶 עיראק",g:"בית I",d:"26/6 22:00"},
+  {id:"g7",h:"🇨🇻 כף ורדה",a:"🇸🇦 ערב הסעודית",g:"בית H",d:"27/6 03:00"},
+  {id:"g8",h:"🇺🇾 אורוגוואי",a:"🇪🇸 ספרד",g:"בית H",d:"27/6 03:00"},
+  {id:"g9",h:"🇳🇿 ניו זילנד",a:"🇧🇪 בלגיה",g:"בית G",d:"27/6 06:00"},
+  {id:"g10",h:"🇪🇬 מצרים",a:"🇮🇷 איראן",g:"בית G",d:"27/6 06:00"},
+  {id:"g11",h:"🇵🇦 פנמה",a:"🏴󠁧󠁢󠁥󠁮󠁧󠁿 אנגליה",g:"בית J",d:"28/6 00:00"},
+  {id:"g12",h:"🇭🇷 קרואטיה",a:"🇬🇭 גאנה",g:"בית J",d:"28/6 00:00"},
+  {id:"g13",h:"🇨🇴 קולומביה",a:"🇵🇹 פורטוגל",g:"בית L",d:"28/6 02:30"},
+  {id:"g14",h:"🇨🇩 קונגו",a:"🇺🇿 אוזבקיסטן",g:"בית L",d:"28/6 02:30"},
+  {id:"g15",h:"🇩🇿 אלג'יריה",a:"🇦🇹 אוסטריה",g:"בית K",d:"28/6 05:00"},
+  {id:"g16",h:"🇯🇴 ירדן",a:"🇦🇷 ארגנטינה",g:"בית K",d:"28/6 05:00"},
+];
+const KM = [
+  // שלב 32 האחרונות (28/6 - 4/7)
+  {id:"r1",h:"🇿🇦 דרום אפריקה",a:"🇨🇦 קנדה",g:"שלב 32",d:"28/6",l:"מ1"},
+  {id:"r2",h:"🇧🇷 ברזיל",a:"סגנית בית F",g:"שלב 32",d:"29/6",l:"מ2"},
+  {id:"r3",h:"🇩🇪 גרמניה",a:"3 מבתים A/B/C/D/F",g:"שלב 32",d:"29/6",l:"מ3"},
+  {id:"r4",h:"מנצחת בית F",a:"🇲🇦 מרוקו",g:"שלב 32",d:"30/6",l:"מ4"},
+  {id:"r5",h:"סגנית בית E",a:"סגנית בית I",g:"שלב 32",d:"30/6",l:"מ5"},
+  {id:"r6",h:"מנצחת בית I",a:"3 מבתים C/D/F/G/H",g:"שלב 32",d:"30/6",l:"מ6"},
+  {id:"r7",h:"🇲🇽 מקסיקו",a:"3 מבתים C/E/F/H/I",g:"שלב 32",d:"1/7",l:"מ7"},
+  {id:"r8",h:"מנצחת בית L",a:"3 מבתים E/H/I/J/K",g:"שלב 32",d:"1/7",l:"מ8"},
+  {id:"r9",h:"מנצחת בית G",a:"3 מבתים A/E/H/I/J",g:"שלב 32",d:"1/7",l:"מ9"},
+  {id:"r10",h:"🇺🇸 ארה'ב",a:"3 מבתים B/E/F/I/J",g:"שלב 32",d:"2/7",l:"מ10"},
+  {id:"r11",h:"סגנית בית K",a:"סגנית בית L",g:"שלב 32",d:"2/7",l:"מ11"},
+  {id:"r12",h:"מנצחת בית H",a:"סגנית בית J",g:"שלב 32",d:"2/7",l:"מ12"},
+  {id:"r13",h:"מנצחת בית B",a:"3 מבתים C/D/E/F/G",g:"שלב 32",d:"3/7",l:"מ13"},
+  {id:"r14",h:"סגנית בית D",a:"סגנית בית G",g:"שלב 32",d:"3/7",l:"מ14"},
+  {id:"r15",h:"מנצחת בית J",a:"3 מבתים A/B/C/D/G",g:"שלב 32",d:"3/7",l:"מ15"},
+  {id:"r16",h:"מנצחת בית K",a:"מנצחת בית C",g:"שלב 32",d:"4/7",l:"מ16"},
+  // שמינית גמר (5-8 יולי) - קבוצות יוודעו
+  {id:"s1",h:"",a:"",g:"שמינית גמר",d:"5/7",l:"ש1"},
+  {id:"s2",h:"",a:"",g:"שמינית גמר",d:"5/7",l:"ש2"},
+  {id:"s3",h:"",a:"",g:"שמינית גמר",d:"6/7",l:"ש3"},
+  {id:"s4",h:"",a:"",g:"שמינית גמר",d:"6/7",l:"ש4"},
+  {id:"s5",h:"",a:"",g:"שמינית גמר",d:"7/7",l:"ש5"},
+  {id:"s6",h:"",a:"",g:"שמינית גמר",d:"7/7",l:"ש6"},
+  {id:"s7",h:"",a:"",g:"שמינית גמר",d:"8/7",l:"ש7"},
+  {id:"s8",h:"",a:"",g:"שמינית גמר",d:"8/7",l:"ש8"},
+  // רבע גמר
+  {id:"q1",h:"",a:"",g:"רבע גמר",d:"9/7",l:"ר1"},
+  {id:"q2",h:"",a:"",g:"רבע גמר",d:"10/7",l:"ר2"},
+  {id:"q3",h:"",a:"",g:"רבע גמר",d:"11/7",l:"ר3"},
+  {id:"q4",h:"",a:"",g:"רבע גמר",d:"12/7",l:"ר4"},
+  // חצי גמר
+  {id:"sf1",h:"",a:"",g:"חצי גמר",d:"14/7",l:"חצי 1"},
+  {id:"sf2",h:"",a:"",g:"חצי גמר",d:"15/7",l:"חצי 2"},
+  // גמר
+  {id:"fin",h:"",a:"",g:"גמר",d:"19/7",l:"גמר 🏆"},
+];
+const AM = [...GM,...KM];
+
+// ========== STATE ==========
+let pname="", rname="", isAdmin=false, submitted=false;
+let draft={}, stage="g", astage="g";
+let D = {players:{}, results:{}, kt:{}, roomName:""};
+
+// ========== AUTO LOGIN ==========
+window.addEventListener('load', async () => {
+  const saved = localStorage.getItem('mundial-player');
+  if(saved) {
+    const p = JSON.parse(saved);
+    pname = p.name;
+    isAdmin = p.isAdmin || false;
+    await load();
+    if(D.players[pname]) {
+      rname = D.roomName;
+      const existingBets = D.players[pname]?.bets||{};
+      if(Object.keys(existingBets).length > 0) {
+        draft={};
+        for(const[k,v] of Object.entries(existingBets)) draft[k]={h:v.h,a:v.a};
+      }
+      enterGame();
+      return;
+    }
+  }
+  // Show name if saved but not in room
+  if(saved) document.getElementById("iname").value = JSON.parse(saved).name;
+});
+
+// ========== SYNC via Firebase REST ==========
+const FBURL = "https://mundial-ec75f-default-rtdb.firebaseio.com/mundial2026-main.json";
+
+async function load() {
+  try {
+    const r = await fetch(FBURL);
+    const d = await r.json();
+    if(d) D = {players:d.players||{}, results:d.results||{}, kt:d.kt||{}, roomName:d.roomName||""};
+    return true;
+  } catch(e) { return false; }
+}
+
+async function save() {
+  try {
+    await fetch(FBURL, {method:"PUT", headers:{"Content-Type":"application/json"}, body:JSON.stringify(D)});
+  } catch(e) { notify("שגיאת שמירה","err"); }
+}
+
+// ========== UI HELPERS ==========
+function notify(msg, t="ok") {
+  const el = document.getElementById("notif");
+  el.textContent = msg; el.className = "notif "+(t==="err"?"nerr":"nok");
+  el.style.display = "block";
+  setTimeout(()=>el.style.display="none", 3000);
+}
+function go(s) {
+  document.querySelectorAll(".sc").forEach(x=>x.classList.remove("on"));
+  document.getElementById("s-"+s).classList.add("on");
+}
+function stab(name, btn) {
+  document.querySelectorAll("#s-game > .container > .tabs .tab").forEach(b=>b.classList.remove("on"));
+  btn.classList.add("on");
+  ["bets","lb","special","admin"].forEach(t=>document.getElementById("t-"+t).style.display="none");
+  document.getElementById("t-"+name).style.display="block";
+  if(name==="lb") renderLB();
+  if(name==="admin") { renderAdmin(); setTimeout(loadSpecialAnswers,300); }
+}
+function sstage(s, btn, ctx) {
+  if(ctx==="bets") stage=s; else astage=s;
+  btn.parentElement.querySelectorAll(".tab").forEach(b=>b.classList.remove("on"));
+  btn.classList.add("on");
+  if(ctx==="bets") renderBets(); else renderAdmin();
+}
+function ptsSpecial(p) {
+  const sp = D.players[p]?.special || {};
+  const ans = D.special || {};
+  let pts = 0;
+  if(ans.winner && sp.winner && sp.winner.trim().toLowerCase()===ans.winner.trim().toLowerCase()) pts+=5;
+  if(ans.scorer && sp.scorer && sp.scorer.trim().toLowerCase()===ans.scorer.trim().toLowerCase()) pts+=5;
+  if(ans.player && sp.player && sp.player.trim().toLowerCase()===ans.player.trim().toLowerCase()) pts+=5;
+  return pts;
+}
+
+function pts(p) {
+  const bets = D.players[p]?.bets || {};
+  return ptsSpecial(p) + AM.reduce((sum,m)=>{
+    const r=D.results[m.id], b=bets[m.id];
+    if(!r||!b||b.h==null||b.a==null) return sum;
+    const bh=+b.h,ba=+b.a,rh=+r.h,ra=+r.a;
+    if(bh===rh&&ba===ra) return sum+3;
+    const bo=bh>ba?"H":bh<ba?"A":"D", ro=rh>ra?"H":rh<ra?"A":"D";
+    return sum+(bo===ro?1:0);
+  },0);
+}
+
+// ========== NAVIGATION ==========
+function goJoin() {
+  pname = document.getElementById("iname").value.trim();
+  if(!pname){notify("יש להזין שם","err");return;}
+  document.getElementById("jname").textContent = pname;
+  go("join");
+}
+function goCreate() {
+  pname = document.getElementById("iname").value.trim();
+  if(!pname){notify("יש להזין שם","err");return;}
+  document.getElementById("cadmin").textContent = pname;
+  go("create");
+}
+
+// ========== CREATE ==========
+async function createRoom() {
+  const rn = document.getElementById("irname").value.trim();
+  if(!rn){notify("יש להזין שם חדר","err");return;}
+  notify("יוצר חדר...");
+  await load();
+  D.roomName = rn;
+  D.players = D.players||{};
+  D.players[pname] = {isAdmin:true, bets:{}};
+  await save();
+  rname=rn; isAdmin=true;
+  localStorage.setItem('mundial-player', JSON.stringify({name:pname, isAdmin:true}));
+  enterGame();
+  notify("חדר נוצר! 🎉");
+}
+
+// ========== JOIN ==========
+async function joinRoom() {
+  notify("מתחבר...");
+  const ok = await load();
+  if(!D.roomName){notify("החדר לא נמצא — האדמין צריך ליצור אותו קודם","err");return;}
+  if(D.players[pname]){notify("השם הזה כבר תפוס","err");return;}
+  D.players[pname]={isAdmin:false,bets:{}};
+  await save();
+  rname=D.roomName; isAdmin=false;
+  localStorage.setItem('mundial-player', JSON.stringify({name:pname, isAdmin:false}));
+  enterGame();
+  notify("הצטרפת! 🎉");
+}
+
+// ========== ENTER GAME ==========
+function enterGame() {
+  document.getElementById("hroom").textContent = rname;
+  document.getElementById("hplayer").textContent = pname;
+  if(isAdmin){
+    document.getElementById("hadmin").style.display="inline-block";
+    document.getElementById("atab").style.display="block";
+  }
+  const mb = D.players[pname]?.bets||{};
+  if(Object.keys(mb).length>0){
+    draft={};
+    for(const[k,v] of Object.entries(mb)) draft[k]={h:v.h,a:v.a};
+  }
+  go("game");
+  renderBets();
+  setTimeout(loadSpecial, 500);
+}
+
+// ========== RENDER BETS ==========
+function renderBets() {
+  const list = document.getElementById("blist");
+  const matches = stage==="g" ? GM : KM;
+  list.innerHTML = matches.map(m=>{
+    const kt=D.kt[m.id], dh=kt?.h||m.h, da=kt?.a||m.a;
+    const unk=!dh&&!da;
+    const res=D.results[m.id];
+    const savedBet=(D.players[pname]?.bets||{})[m.id];
+    const mb=savedBet||draft[m.id];
+    const isLocked=!!savedBet;
+    let pbadge="";
+    if(res&&mb&&mb.h!=null){
+      const bh=+mb.h,ba=+mb.a,rh=+res.h,ra=+res.a;
+      let p=0;
+      if(bh===rh&&ba===ra) p=3;
+      else{const bo=bh>ba?"H":bh<ba?"A":"D",ro=rh>ra?"H":rh<ra?"A":"D";if(bo===ro)p=1;}
+      pbadge=`<span class="badge ${p===3?"bgg":p===1?"bg":"br"}">${p} נק'</span>`;
+    }
+    const score = unk
+      ? `<div class="unk">🔒 קבוצות יוודעו בהמשך</div>`
+      : `<div class="mr">
+          <span class="tn">${dh||"?"}</span>
+          <div class="si">
+            ${isLocked&&mb
+              ?`<div class="sd">${mb.h??"-"}</div><span class="sep">:</span><div class="sd">${mb.a??"-"}</div>`
+              :`<input type="number" min="0" max="20" class="sb" id="bh-${m.id}" placeholder="0" value="${draft[m.id]?.h??''}">
+                <span class="sep">:</span>
+                <input type="number" min="0" max="20" class="sb" id="ba-${m.id}" placeholder="0" value="${draft[m.id]?.a??''}">`
+            }
+          </div>
+          <span class="tn ta">${da||"?"}</span>
+        </div>`;
+    return `<div class="mc">
+      <div class="mh">
+        <span class="badge bg">${m.g}</span>
+        <span style="font-size:12px;color:#64748b">${m.l||""} ${m.d}</span>
+        ${pbadge}
+      </div>
+      ${score}
+      ${res?`<div class="res">תוצאה: <b style="color:#f1f5f9">${res.h}:${res.a}</b></div>`:""}
+    </div>`;
+  }).join("");
+}
+
+// ========== SAVE BETS ==========
+async function saveBets() {
+  AM.forEach(m=>{
+    const ih=document.getElementById("bh-"+m.id);
+    const ia=document.getElementById("ba-"+m.id);
+    if(ih&&ia&&(ih.value!==""||ia.value!=="")) draft[m.id]={h:ih.value,a:ia.value};
+  });
+  await load();
+  D.players[pname]=D.players[pname]||{};
+  D.players[pname].bets=draft;
+  await save();
+  renderBets();
+  notify("ההימורים נשמרו! 🎉");
+}
+
+// ========== LEADERBOARD ==========
+function renderLB() {
+  const ps=Object.keys(D.players);
+  document.getElementById("lbcount").textContent=ps.length;
+  const lb=ps.map(p=>({name:p,pts:pts(p),n:Object.keys(D.players[p]?.bets||{}).length}))
+    .sort((a,b)=>b.pts-a.pts);
+  document.getElementById("lblist").innerHTML = lb.map((p,i)=>`
+    <div class="card lbr ${p.name===pname?"mec":""}">
+      <div style="font-size:22px;width:36px;text-align:center">${i===0?"🥇":i===1?"🥈":i===2?"🥉":"#"+(i+1)}</div>
+      <div style="flex:1">
+        <div class="lbn">${p.name}${p.name===pname?' <span style="font-size:12px;color:#f59e0b">(אני)</span>':""}</div>
+        <div class="lbs">${p.n} הימורים</div>
+      </div>
+      <div class="lbp">${p.pts}</div>
+      ${isAdmin&&p.name!==pname?`<button onclick="deletePlayer('${p.name}')" style="background:#7f1d1d;border:none;color:#f87171;border-radius:8px;padding:6px 10px;cursor:pointer;font-size:13px;font-family:inherit">🗑</button>`:""}
+    </div>`).join("") || '<div style="text-align:center;color:#64748b;padding:40px">אין שחקנים עדיין</div>';
+}
+
+// ========== ADMIN ==========
+function renderAdmin() {
+  const matches = astage==="g" ? GM : KM;
+  document.getElementById("alist").innerHTML = matches.map(m=>{
+    const kt=D.kt[m.id], res=D.results[m.id];
+    const dh=kt?.h||m.h, da=kt?.a||m.a;
+    const ktRow = (astage==="k") ? `<div style="display:flex;gap:6px;margin-bottom:8px">
+      <input class="ati" id="kh-${m.id}" placeholder="קבוצה בית" value="${kt?.h||''}">
+      <span class="sep" style="line-height:32px">vs</span>
+      <input class="ati" id="ka-${m.id}" placeholder="קבוצה חוץ" value="${kt?.a||''}">
+      <button class="sbtn" onclick="updTeams('${m.id}')">✓ עדכן קבוצות</button>
+    </div>` : "";
+    return `<div class="mc">
+      <div class="mh">
+        <span class="badge bg">${m.g}</span>
+        <span style="font-size:12px;color:#64748b">${m.l||""} ${m.d}</span>
+      </div>
+      ${ktRow}
+      <div class="mr" style="gap:8px">
+        <span class="tn" style="font-size:12px">${dh||"?"}</span>
+        <input type="number" min="0" class="sb" id="rh-${m.id}" value="${res?.h??''}">
+        <span class="sep">:</span>
+        <input type="number" min="0" class="sb" id="ra-${m.id}" value="${res?.a??''}">
+        <span class="tn ta" style="font-size:12px">${da||"?"}</span>
+        <button class="cbtn" onclick="saveRes('${m.id}')">✓ תוצאה</button>
+      </div>
+      ${res?`<div class="res">תוצאה: <b style="color:#f1f5f9">${res.h}:${res.a}</b></div>`:""}
+    </div>`;
+  }).join("");
+}
+
+async function saveRes(id) {
+  const h=document.getElementById("rh-"+id)?.value;
+  const a=document.getElementById("ra-"+id)?.value;
+  if(h===""||a===""){notify("הזן שתי תוצאות","err");return;}
+  await load();
+  D.results[id]={h,a};
+  await save();
+  renderAdmin();
+  notify("תוצאה עודכנה ✓");
+}
+
+async function updTeams(id) {
+  const h=document.getElementById("kh-"+id)?.value.trim();
+  const a=document.getElementById("ka-"+id)?.value.trim();
+  if(!h||!a){notify("הזן שתי קבוצות","err");return;}
+  await load();
+  D.kt[id]={h,a};
+  await save();
+  renderAdmin();
+  notify("קבוצות עודכנו ✓");
+}
+
+async function saveSpecialAnswers() {
+  const winner = document.getElementById("ans-winner").value.trim();
+  const scorer = document.getElementById("ans-scorer").value.trim();
+  const player = document.getElementById("ans-player").value.trim();
+  await load();
+  D.special = {winner, scorer, player};
+  await save();
+  notify("תשובות נשמרו ✓");
+}
+
+async function saveSpecial() {
+  const winner = document.getElementById("sp-winner").value.trim();
+  const scorer = document.getElementById("sp-scorer").value.trim();
+  const player = document.getElementById("sp-player").value.trim();
+  if(!winner&&!scorer&&!player){notify("יש למלא לפחות שדה אחד","err");return;}
+  await load();
+  D.players[pname] = D.players[pname]||{};
+  D.players[pname].special = {winner,scorer,player};
+  await save();
+  document.getElementById("sp-saved").style.display="block";
+  document.getElementById("sp-display").innerHTML = 
+    `🥇 ${winner||"—"} &nbsp;|&nbsp; ⚽ ${scorer||"—"} &nbsp;|&nbsp; 🏅 ${player||"—"}`;
+  notify("נשמר! 🎉");
+}
+
+async function loadSpecialAnswers() {
+  const ans = D.special||{};
+  if(document.getElementById("ans-winner")) {
+    document.getElementById("ans-winner").value = ans.winner||"";
+    document.getElementById("ans-scorer").value = ans.scorer||"";
+    document.getElementById("ans-player").value = ans.player||"";
+  }
+}
+
+async function loadSpecial() {
+  const sp = D.players[pname]?.special||{};
+  if(sp.winner||sp.scorer||sp.player) {
+    if(document.getElementById("sp-winner")) {
+      document.getElementById("sp-winner").value = sp.winner||"";
+      document.getElementById("sp-scorer").value = sp.scorer||"";
+      document.getElementById("sp-player").value = sp.player||"";
+      document.getElementById("sp-saved").style.display="block";
+      document.getElementById("sp-display").innerHTML = 
+        `🥇 ${sp.winner||"—"} &nbsp;|&nbsp; ⚽ ${sp.scorer||"—"} &nbsp;|&nbsp; 🏅 ${sp.player||"—"}`;
+    }
+  }
+}
+
+async function deletePlayer(name) {
+  if(!confirm("למחוק את " + name + "?")) return;
+  await load();
+  delete D.players[name];
+  await save();
+  renderLB();
+  notify("נמחק ✓");
+}
+
+async function refresh() {
+  await load();
+  renderBets();
+  if(document.getElementById("t-lb").style.display!=="none") renderLB();
+  if(document.getElementById("t-admin").style.display!=="none") renderAdmin();
+  notify("רענון מוצלח ↻");
+}
+</script>
+</body>
+</html>
